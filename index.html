@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, Kevin Suyadi Ritonga 🤍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            /* Background Pink Aesthetic Girly & Soft */
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ffecd2 100%);
+            color: #593542;
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Container Kartu Surat Glassmorphism Pink Estetik */
+        .container {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 0 15px 45px rgba(210, 105, 140, 0.3), 0 0 25px rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            width: 88%;
+            max-width: 400px;
+            z-index: 10;
+            position: absolute;
+            box-sizing: border-box;
+            
+            /* Animasi Transisi Slide & Fade Halus */
+            opacity: 0;
+            transform: translateY(35px) scale(0.92);
+            transition: all 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .container.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        /* Avatar Kartun Cewek Imut Representasi Kamu */
+        .avatar-container {
+            width: 75px;
+            height: 75px;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            border-radius: 50%;
+            margin: -50px auto 10px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 38px;
+            box-shadow: 0 5px 15px rgba(214, 51, 132, 0.4);
+            border: 3px solid #fff;
+            animation: bounceAvatar 2s infinite ease-in-out;
+        }
+
+        @keyframes bounceAvatar {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.05); }
+        }
+
+        h3 {
+            color: #d63384;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 8px rgba(255, 192, 203, 0.6);
+        }
+
+        /* Animasi Kotak Kado Timbul di Awal */
+        .gift-box-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gift-box {
+            font-size: 85px;
+            cursor: pointer;
+            animation: pulseGift 1.4s infinite alternate ease-in-out;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin: 12px 0;
+            filter: drop-shadow(0 8px 20px rgba(214, 51, 132, 0.4));
+        }
+
+        .gift-box:hover {
+            transform: scale(1.15) rotate(8deg);
+        }
+
+        @keyframes pulseGift {
+            0% { transform: scale(1) translateY(0); }
+            100% { transform: scale(1.08) translateY(-4px); }
+        }
+
+        input {
+            padding: 14px;
+            font-size: 16px;
+            border-radius: 14px;
+            border: 2px solid rgba(214, 51, 132, 0.3);
+            text-align: center;
+            margin-bottom: 15px;
+            width: 85%;
+            background: rgba(255, 255, 255, 0.7);
+            color: #593542;
+            outline: none;
+            font-family: 'Quicksand', sans-serif;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #d63384;
+            box-shadow: 0 0 12px rgba(214, 51, 132, 0.35);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        button {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 5px;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #ff5e7e 0%, #ff659d 100%);
+            box-shadow: 0 6px 20px rgba(255, 94, 126, 0.6);
+        }
+
+        /* Kotak Teks Surat dengan Animasi Lucu Per Baris */
+        .story-text {
+            font-size: 13.5px;
+            line-height: 1.7;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 16px;
+            border-radius: 16px;
+            max-height: 230px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            white-space: pre-line;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            color: #4a2835;
+            scrollbar-width: thin;
+            scrollbar-color: #d63384 rgba(255,255,255,0.2);
+        }
+
+        /* Animasi teks muncul lembut bergelombang saat slide aktif */
+        .container.active .story-text {
+            animation: fadeInContent 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .story-text::-webkit-scrollbar {
+            width: 5px;
+        }
+        .story-text::-webkit-scrollbar-thumb {
+            background-color: #d63384;
+            border-radius: 10px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Efek Kelopak Bunga & Hati Berjatuhan Estetik */
+        .petal {
+            position: fixed;
+            top: -10vh;
+            z-index: 1;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0.25;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="petal-container"></div>
+
+    <div class="container active" id="page-lock">
+        <div class="avatar-container">👧🏻</div>
+        <h3>🎁 Special Gift For You!</h3>
+        <div class="gift-box-container">
+            <div class="gift-box" onclick="shakeGift(this)">🎁</div>
+        </div>
+        <p style="font-size: 13px; color: #8c4a60; margin-bottom: 12px; font-weight: 600;">Ketuk kadonya atau masukkan PIN rahasia yaa ✨</p>
+        <input type="password" id="passcode" placeholder="••••••"><br>
+        <button onclick="checkPassword()">Buka Kado 🤍</button>
+        <p style="font-size: 11px; color: #d63384; margin-top: 10px; font-weight: 600;">Hint PIN: 111111 💜</p>
+    </div>
+
+    <div class="container" id="page-1">
+        <div class="avatar-container">🤭</div>
+        <h3>🌷 PEMBUKA</h3>
+        <div class="story-text">WOIII SENGGG 😭
+Iya kamu.
+Jangan pura-pura nggak tahu. 😒😂
+Aku ada sesuatu buat kamu...
+Sebenernya aku mau bikin yang keren, aesthetic, terus bikin kamu terharu.
+Tapi karena yang bikin aku...
+ya semoga nggak malu-maluin aja lah ya. 😭😂
+Tapi ini beneran khusus buat kamu.
+Kevin Suyadi Ritonga 🤍
+alias...
+Senggkuuu.
+Jadi sebelum kamu buka...
+jangan ketawa dulu.
+Aku udah malu bikin beginian. 😭</div>
+        <div class="nav-buttons">
+            <div></div>
+            <button onclick="nextPage(1)">Buka dulu donggg → 🤍</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-2">
+        <div class="avatar-container">🎂</div>
+        <h3>🎂 23 SEPTEMBER</h3>
+        <div class="story-text">HAPPY BIRTHDAY SENGGKUUU! 🤍
+Selamat ulang tahun yaa sayanggg.
+Nggak kerasa kamu udah tambah umur lagi. 😭
+Tapi tenang...
+tambah umur bukan berarti tambah dewasa. 😭😂
+Bercanda sengg, jangan marah. 🤣
+
+Semoga di umur kamu yang baru ini kamu makin sehat, makin kuat, rezekinya makin lancar, urusannya dimudahkan, dan semua yang lagi kamu usahain sekarang pelan-pelan bisa tercapai.
+Semoga kamu selalu punya alasan buat senyum.
+Semoga hari-hari kamu ke depannya lebih banyak baiknya daripada capeknya.
+Semoga kalau ada sesuatu yang kamu pengenin, satu-satu bisa kamu dapatkan.
+Dan semoga kamu selalu punya tenaga buat ngejar semua yang kamu impikan.
+Walaupun...
+jangan kerja terus sampai lupa aku. 😭
+Aku kan juga butuh perhatian. 😒😂</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(2)">← Kembali</button>
+            <button onclick="nextPage(2)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-3">
+        <div class="avatar-container">🥺</div>
+        <h3>💌 AKU MAU NGOMONG SESUATU</h3>
+        <div class="story-text">Sengg...
+Sebenernya aku nggak tahu harus mulai dari mana.
+Aku dari tadi mikir mau nulis apa buat kamu, tapi makin dipikir malah makin bingung. 😭
+Banyak banget yang mau aku bilang.
+Tapi susah banget kalau harus dijadiin kata-kata.
+
+Karena kadang ada perasaan yang kalau cuma disimpan di hati rasanya penuh banget...
+Tapi pas mau diomongin malah cuma bisa bilang:
+“Aku sayang kamu.”
+Udah.
+😭
+
+Padahal sebenernya masih banyak banget yang pengen aku bilang.
+Aku cuma mau kamu tahu...
+aku seneng banget bisa kenal kamu.
+Sesimpel itu.
+Aku seneng pernah ketemu kamu.
+Seneng bisa ngobrol sama kamu.
+Seneng bisa punya seseorang yang bisa aku cari kalau aku lagi pengen cerita.
+Seneng bisa punya seseorang yang tiba-tiba bikin aku senyum cuma gara-gara satu chat.
+
+Dan yang paling lucu...
+Aku sendiri nggak tahu kapan tepatnya aku mulai sesayang ini sama kamu.
+Kita juga nggak punya tanggal yang jelas kan? 😭
+Tiba-tiba udah manggil sengg.
+Tiba-tiba udah saling perhatian.
+Tiba-tiba udah saling nungguin.
+Tiba-tiba udah jadi tempat cerita.
+Dan tiba-tiba...
+aku takut kehilangan kamu.
+🥹</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(3)">← Kembali</button>
+            <button onclick="nextPage(3)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-4">
+        <div class="avatar-container">🤭</div>
+        <h3>🥺 TENTANG AWAL KITA</h3>
+        <div class="story-text">Kalau dipikir-pikir lagi...
+Lucu juga ya kita.
+Kita nggak punya cerita awal yang terlalu jelas.
+Nggak ada tanggal yang benar-benar kita ingat.
+Nggak ada momen:
+“Pada hari ini, pukul sekian, kita resmi menjadi pasangan.”
+NGGAK ADA. 😭😂
+
+Tahu-tahu udah saling manggil sengg.
+Tahu-tahu udah nyaman.
+Tahu-tahu udah saling cari kalau nggak ngobrol.
+Tahu-tahu udah jadi bagian dari hari masing-masing.
+Dan tahu-tahu...
+aku udah sayang banget sama kamu.
+
+Kadang aku suka mikir...
+kok bisa ya?
+Kok orang yang awalnya mungkin cuma orang biasa yang aku kenal...
+pelan-pelan malah jadi orang yang keberadaannya penting banget buat aku.
+
+Sampai kalau kamu nggak ada kabar...
+aku bisa mikir macam-macam. 😭
+Padahal mungkin kamu cuma lagi makan. 😭😂
+Tapi ya begitulah...
+kalau udah sayang, otak suka nggak diajak kerja sama.</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(4)">← Kembali</button>
+            <button onclick="nextPage(4)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-5">
+        <div class="avatar-container">💪🏻</div>
+        <h3>🌙 KALAU NANTI KAMU CAPEK</h3>
+        <div class="story-text">Sengg...
+Nanti kalau kamu udah mulai kerja dan hidup kamu makin sibuk...
+kalau nanti kamu capek...
+kalau nanti kamu pulang kerja rasanya udah nggak punya tenaga buat ngapa-ngapain...
+aku harap kamu tetap inget kalau ada aku.
+
+Aku mungkin nggak bisa selalu ada di samping kamu secara langsung.
+Aku juga mungkin nggak bisa bantu banyak.
+Kadang paling banter aku cuma bisa bilang:
+“Sengg, semangat yaa.” 😭
+Tapi aku serius waktu bilang itu.
+Aku beneran pengen kamu baik-baik aja.
+Aku pengen kamu berhasil.
+Aku pengen kamu punya kehidupan yang kamu mau.
+Aku pengen lihat kamu suatu hari nanti bisa bilang:
+“Akhirnya aku berhasil.”
+Dan aku pengen jadi salah satu orang yang ikut senang waktu kamu ngomong itu.
+
+Kalau nanti kamu lagi capek...
+nggak apa-apa.
+Kalau nanti kamu lagi takut...
+nggak apa-apa.
+Kalau nanti kamu lagi bingung...
+nggak apa-apa.
+Kamu nggak harus selalu kuat.
+Kalau kamu mau cerita, cerita aja.
+Kalau kamu mau diam, aku temenin.
+
+Kalau kamu cuma butuh seseorang yang bilang:
+“Ayo sengg, kita jalan lagi pelan-pelan.”
+Aku mau jadi orang itu.
+Walaupun mungkin setelah kamu cerita panjang lebar...
+aku cuma bisa jawab:
+“Iya sengg, aku ngerti...”
+Padahal dalam hati:
+“Aku juga bingung harus jawab apa. 😭”
+😂😭
+
+Tapi setidaknya...
+kamu nggak sendirian.</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(5)">← Kembali</button>
+            <button onclick="nextPage(5)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-6">
+        <div class="avatar-container">🤍</div>
+        <h3>🤍 AKU NGGAK MINTA KAMU SEMPURNA</h3>
+        <div class="story-text">Aku nggak butuh kamu jadi orang yang sempurna.
+Aku nggak butuh kamu selalu tahu harus ngapain.
+Aku nggak butuh kamu selalu kuat.
+Aku juga nggak mau kamu ngerasa harus selalu terlihat baik-baik aja di depan aku.
+
+Kalau capek, bilang capek.
+Kalau sedih, bilang sedih.
+Kalau takut, bilang takut.
+Kalau lagi banyak pikiran...
+cerita aja.
+Nggak harus selalu ada solusi.
+Kadang kita cuma butuh seseorang yang mau dengerin.
+
+Dan kalau kamu butuh itu...
+aku mau jadi orangnya.
+Aku mungkin nggak selalu punya jawaban.
+Kadang aku malah ikut bingung. 😭😂
+Tapi aku bisa dengerin.
+Aku bisa nemenin.
+Aku bisa bilang:
+“Udah sengg, pelan-pelan aja.”
+
+Dan kalau memang hari itu berat banget...
+yaudah.
+Kita istirahat dulu.
+Besok baru lanjut lagi.
+Aku nggak mau kamu merasa harus menghadapi semuanya sendirian.
+🥹</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(6)">← Kembali</button>
+            <button onclick="nextPage(6)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-7">
+        <div class="avatar-container">✨</div>
+        <h3>🥹 TENTANG MIMPI KAMU</h3>
+        <div class="story-text">Aku pengen banget lihat kamu berhasil.
+Bukan cuma karena aku pacar kamu.
+Tapi karena aku tahu kamu juga punya mimpi.
+Punya keinginan.
+Punya kehidupan yang pengen kamu bangun.
+
+Aku tahu mungkin nggak semuanya gampang.
+Mungkin ada banyak hal yang harus kamu korbankan.
+Mungkin ada banyak capek yang harus kamu lewatin.
+Tapi aku harap...
+jangan berhenti percaya sama diri kamu sendiri.
+
+Kalau nanti ada hari di mana kamu ngerasa:
+“Kayaknya aku nggak bisa deh...”
+Aku pengen kamu inget...
+aku percaya kamu bisa.
+Bahkan kalau saat itu kamu sendiri lagi nggak percaya sama diri kamu.
+Aku percaya.
+
+Aku pengen lihat kamu berhasil.
+Aku pengen lihat kamu punya kehidupan yang kamu impikan.
+Dan nanti kalau kamu udah berhasil...
+aku mungkin bakal jadi orang yang paling sering bilang:
+“Tuh kan sengg, aku bilang juga apa.” 😭😂
+Padahal dari dulu juga mungkin aku nggak pernah bilang. 😭</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(7)">← Kembali</button>
+            <button onclick="nextPage(7)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-8">
+        <div class="avatar-container">📸</div>
+        <h3>📸 SATU MASALAH BESAR KITA</h3>
+        <div class="story-text">Tapi ada satu hal yang sampai sekarang masih mengganggu pikiranku...
+KITA BELUM PUNYA FOTO BERDUA. 😭😭😭
+HAHAHAHAHA.
+Ini pacaran apa hubungan LDR sama KTP sih? 😭😂
+
+Tapi gapapa.
+Berarti masih ada satu momen yang belum kita punya.
+Foto pertama kita.
+Dan aku nggak peduli nanti fotonya aesthetic atau malah muka kita sama-sama aneh.
+Mau rambut berantakan.
+Mau muka lagi jelek.
+Mau senyum nggak jelas.
+Yang penting ada kamu dan aku di satu frame. 🤍
+
+Aku pengen suatu hari nanti kita punya banyak foto.
+Banyak banget.
+Sampai nanti galeri HP penuh sama foto kita.
+Terus kamu protes:
+“Sengg, hapus sebagian dong.”
+Aku:
+“NGGAK MAU.” 😭😂
+
+Terus nanti kalau beberapa tahun lagi kita lihat website ini...
+kita bisa ketawa sambil bilang:
+“Dulu kita bahkan belum punya foto berdua.”
+Dan mungkin saat itu...
+kita udah punya begitu banyak cerita yang nggak pernah kita bayangin sebelumnya.
+🥹🤍</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(8)">← Kembali</button>
+            <button onclick="nextPage(8)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-9">
+        <div class="avatar-container">💭</div>
+        <h3>💭 TENTANG MASA DEPAN KITA</h3>
+        <div class="story-text">Sengg...
+Aku tahu perjalanan kita ke depan masih panjang.
+Kamu punya rencana kamu.
+Aku juga punya rencana aku.
+Kita sama-sama pengen punya kehidupan yang lebih baik.
+
+Mungkin nanti ada masa kita sama-sama sibuk.
+Ada masa kita jauh.
+Ada masa kita capek.
+Ada masa kita mungkin nggak punya banyak waktu buat ngobrol.
+Tapi aku berharap...
+kita tetap saling ngerti.
+
+Kalau salah satu lagi capek, jangan malah menjauh.
+Kalau ada masalah, jangan langsung menyerah.
+Kalau lagi susah, jangan merasa harus menghadapi semuanya sendirian.
+
+Aku pengen kita sama-sama belajar.
+Sama-sama tumbuh.
+Sama-sama berusaha.
+Sama-sama ngejar mimpi.
+Dan kalau suatu hari nanti kita berhasil sampai ke kehidupan yang kita impikan...
+aku pengen kita bisa nengok ke belakang dan bilang:
+“Gila ya... ternyata kita bisa sampai sejauh ini.”
+🥹🤍
+
+Aku nggak tahu nanti kita bakal sampai sejauh apa.
+Aku nggak tahu semuanya bakal sesuai rencana atau nggak.
+Tapi aku berharap...
+kalau memang kita sama-sama masih mau,
+kita tetap jalan bareng.
+Pelan-pelan aja.
+Nggak harus buru-buru.
+Yang penting...
+jangan saling lepas.</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(9)">← Kembali</button>
+            <button onclick="nextPage(9)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-10">
+        <div class="avatar-container">💸</div>
+        <h3>😂 PROYEK BESAR KITA</h3>
+        <div class="story-text">Nah...
+Sekarang kita masuk ke bagian yang sangat penting. 😭
+Sengg harus rajin kerja yaa.
+Jangan malas-malasan.
+Karena ada satu proyek besar yang harus kita siapkan. 👀
+Aku kasih clue:
+6 huruf.
+Depannya S.
+Belakangnya T.
+Apa hayo? 👀
+...
+...
+SINAMOT. 😭😭😭😂❤️
+WKWKWKWK.
+
+Jadi kalau nanti kamu capek kerja, inget aja:
+“Aku kerja bukan cuma buat diri sendiri... ada masa depan yang harus dibiayai.” 😭😂
+Bercanda sengg.
+Jangan langsung stres. 🤣
+
+Tapi sebenernya...
+aku berharap banget suatu hari nanti candaan ini nggak cuma jadi candaan.
+Semoga suatu hari nanti kita beneran sampai ke tahap itu.
+Bukan cuma ngomong:
+“Nanti kalau udah...”
+Tapi beneran bisa bilang:
+“Akhirnya kita sampai juga.”
+🥹🤍
+
+Dan kalau hari itu datang...
+aku rasa aku bakal nangis.
+Bukan karena sinamotnya. 😭😂
+Tapi karena aku bakal inget...
+dulu kita pernah ada di masa di mana semuanya masih berupa rencana.
+Masih berupa mimpi.
+Masih berupa obrolan kecil.
+Masih berupa:
+“Kalau nanti...”
+Dan ternyata...
+kita beneran bisa sampai.</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(10)">← Kembali</button>
+            <button onclick="nextPage(10)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-11">
+        <div class="avatar-container">🌧️</div>
+        <h3>🌧️ KALAU SUATU HARI NANTI</h3>
+        <div class="story-text">Sengg...
+Kalau suatu hari nanti kamu lagi ngerasa hidup kamu nggak sesuai yang kamu harapkan...
+tolong jangan langsung merasa kamu gagal.
+Karena aku tahu kamu udah berusaha.
+Mungkin hasilnya belum kelihatan sekarang.
+Mungkin kamu belum punya semua yang kamu mau.
+Mungkin masih banyak yang harus dikejar.
+Tapi bukan berarti kamu nggak maju.
+
+Kadang kita cuma terlalu sibuk melihat apa yang belum kita punya...
+sampai lupa melihat seberapa jauh kita udah berjalan.
+
+Jadi kalau nanti kamu lagi capek...
+berhenti sebentar gapapa.
+Tarik napas.
+Istirahat.
+Nangis kalau memang mau nangis.
+Nggak usah sok kuat terus.
+Setelah itu...
+ayo jalan lagi.
+Pelan-pelan aja.
+
+Aku juga nggak akan maksa kamu harus selalu kuat.
+Aku cuma mau kamu jangan menyerah sama diri kamu sendiri.
+Karena aku...
+masih pengen lihat kamu berhasil.
+🥺</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(11)">← Kembali</button>
+            <button onclick="nextPage(11)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-12">
+        <div class="avatar-container">👵🏻</div>
+        <h3>🥺 KALAU NANTI KITA SUDAH TUA</h3>
+        <div class="story-text">Ini mungkin kedengerannya jauh banget...
+Tapi kadang aku suka mikir.
+Gimana ya kalau nanti kita udah tua?
+😭
+
+Kita mungkin bakal lupa banyak hal tentang masa sekarang.
+Mungkin lupa chat pertama.
+Mungkin lupa siapa yang duluan perhatian.
+Mungkin lupa kapan mulai saling manggil sengg.
+Walaupun jelas kamu yang duluan. 😭😂
+Tapi aku berharap kita nggak lupa sama masa ini.
+
+Masa ketika kita masih muda.
+Masih sama-sama belajar.
+Masih sama-sama berusaha.
+Masih sama-sama punya banyak mimpi.
+Masih sama-sama bilang:
+“Nanti kalau udah...”
+
+Aku pengen suatu hari nanti kita bisa duduk bareng...
+terus lihat kembali semua cerita lama.
+Lihat foto pertama kita.
+Lihat website ini.
+Terus ketawa karena ternyata dulu kita masih polos banget. 😭😂
+
+Dan mungkin saat itu aku bakal diem sebentar...
+terus lihat kamu...
+dan mikir:
+“Gila... ternyata orang yang dulu cuma bisa aku panggil lewat chat, sekarang beneran duduk di sebelah aku.”
+🥹🤍
+Aku rasa itu bakal jadi salah satu hal paling indah yang bisa aku rasain.</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(12)">← Kembali</button>
+            <button onclick="nextPage(12)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-13">
+        <div class="avatar-container">💖</div>
+        <h3>🤍 AKU SAYANG KAMU YANG SEKARANG</h3>
+        <div class="story-text">Sengg...
+Aku nggak cuma sayang sama kamu yang nanti udah sukses.
+Aku nggak cuma sayang sama kamu yang nanti udah punya banyak uang.
+Aku nggak cuma sayang sama kamu kalau hidup kamu lagi baik-baik aja.
+
+Aku sayang sama kamu yang sekarang.
+Yang masih berjuang.
+Yang masih belajar.
+Yang masih capek.
+Yang masih kadang bingung.
+Yang masih punya banyak kekurangan.
+Yang mungkin kadang bikin aku kesel. 😭😂
+
+Aku sayang sama kamu yang sekarang.
+Karena kamu nggak harus jadi versi terbaik kamu dulu supaya pantas disayang.
+Buat aku, kamu yang sekarang juga sudah cukup.
+
+Dan kalau nanti kamu berubah jadi lebih baik...
+aku bakal senang.
+Kalau nanti kamu berhasil...
+aku bakal bangga.
+Kalau nanti kamu jatuh...
+aku tetap mau nemenin kamu bangun lagi.
+
+Karena aku nggak pengen cuma ada di bagian cerita kamu yang enak-enaknya aja.
+Aku pengen...
+kalau boleh, aku juga ada di bagian yang susah.
+🥹🤍</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(13)">← Kembali</button>
+            <button onclick="nextPage(13)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-14">
+        <div class="avatar-container">🤭</div>
+        <h3>😭 PESAN TERAKHIR</h3>
+        <div class="story-text">Okeee sengg...
+Ini beneran yang terakhir.
+Aku cuma mau bilang...
+Selamat ulang tahun, senggkuuu. 🎂🤍
+Makasih udah lahir.
+Makasih udah hadir.
+Makasih udah jadi bagian dari hidup aku.
+Makasih udah mau dengerin cerita aku.
+Makasih udah sabar sama aku.
+Makasih udah tetap ada.
+Dan makasih...
+karena sampai sekarang...
+masih mau sama aku. 😭❤️
+
+Aku nggak tahu nanti cerita kita bakal seperti apa.
+Aku nggak bisa janji semuanya akan selalu gampang.
+Aku nggak bisa janji kita nggak akan pernah berantem.
+Aku nggak bisa janji nggak akan ada hari di mana kita sama-sama capek.
+
+Tapi aku bisa bilang satu hal...
+Kalau kamu masih mau, aku juga masih mau.
+Aku mau terus belajar kenal kamu.
+Mau terus dengar cerita kamu.
+Mau lihat kamu berkembang.
+Mau lihat kamu berhasil.
+Mau ketawa bareng kamu.
+Mau marah-marah kecil sama kamu. 😭
+Mau bikin kamu kesel.
+Mau kamu bikin aku kesel.
+Terus lima menit kemudian:
+“Sengg...” 😭😂
+Begitulah kira-kira hubungan kita. 🤣❤️</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(14)">← Kembali</button>
+            <button onclick="nextPage(14)">Lanjut →</button>
+        </div>
+    </div>
+
+    <div class="container" id="page-15">
+        <div class="avatar-container">💐</div>
+        <h3>🌷 ENDING</h3>
+        <div class="story-text">Senggkuuu...
+Kalau suatu hari nanti kamu lupa betapa berharganya diri kamu...
+buka lagi website ini.
+Baca lagi semua yang aku tulis.
+Karena mungkin nanti aku nggak selalu bisa ngomong semuanya secara langsung.
+Setidaknya... kata-kata ini pernah aku tulis buat kamu dengan perasaan yang beneran. 🥹🤍
+
+Dan kalau suatu hari nanti kita benar-benar sampai di tempat yang sekarang cuma bisa kita bayangin...
+aku pengen lihat kamu, terus bilang: “Sengg... kita berhasil.”
+Dan mungkin aku bakal nangis. Kamu juga boleh nangis.
+Tapi kalau kamu nangis duluan... aku screenshot dulu. 😭😭😭😂❤️
+
+Kalau aku bisa mengulang semuanya dari awal, dan seseorang bilang perjalanan kita nggak selalu gampang, aku tetap bakal bilang:
+“Yaudah. Aku tetap mau kenal dia.”
+Karena kenal kamu adalah salah satu hal yang aku syukuri.
+
+Jadi... selamat ulang tahun yaa senggkuuu.
+Semoga panjang umur, sehat selalu, rezekimu lancar, kerja kerasmu dibalas dengan hasil yang baik, dan semoga tabungan kamu cepat terkumpul...
+KARENA SINAMOT KITA MENUNGGU. 😭😭😭😂❤️
+
+Dan semoga di antara semua hal yang kamu perjuangkan, aku masih menjadi salah satu hal yang ingin kamu perjuangkan. 🥹🤍
+
+Aku sayang kamu. Banyak banget.
+Jawabanku tetap: “Iya. Kamu lah. Masa tetangga.” 😭😂❤️
+
+Selamat ulang tahun, Kevin. Senggkuuu.
+Semoga ini awal dari banyak banget hal baik yang nanti kita ceritain lagi bersama. 🥹🤍
+— dari aku, yang kadang nyebelin, kadang manja, kadang cerewet, kadang nggak jelas... tapi beneran sayang banget sama kamu. ❤️</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(15)">← Kembali</button>
+            <div></div>
+        </div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Efek goyang kado saat diketuk
+        function shakeGift(element) {
+            element.style.transform = "scale(1.25) rotate(15deg)";
+            setTimeout(() => {
+                element.style.transform = "scale(1) rotate(0deg)";
+            }, 300);
+        }
+
+        function checkPassword() {
+            const pass = document.getElementById('passcode').value;
+            if (pass === '111111') { // Kode sandi bisa kamu ganti di sini
+                switchSlide('page-lock', 'page-1');
+                
+                // Putar Musik Latar Otomatis
+                const music = document.getElementById('bg-music');
+                music.play().catch(error => console.log("Audio autoplay diblokir browser"));
+            } else {
+                alert('Kode salah, coba lagi yaa 💜');
+            }
+        }
+
+        function switchSlide(hideId, showId) {
+            document.getElementById(hideId).classList.remove('active');
+            setTimeout(() => {
+                document.getElementById(showId).classList.add('active');
+            }, 250);
+        }
+
+        function nextPage(fromPage) {
+            let next = fromPage + 1;
+            if (document.getElementById('page-' + next)) {
+                switchSlide('page-' + fromPage, 'page-' + next);
+            }
+        }
+
+        function prevPage(fromPage) {
+            let prev = fromPage - 1;
+            if (document.getElementById('page-' + prev)) {
+                switchSlide('page-' + fromPage, 'page-' + prev);
+            }
+        }
+
+        // Efek Animasi Bunga, Hati, Bintang & Kado Kecil Berjatuhan
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            
+            const symbols = ['🌸', '🤍', '✨', '🌷', '💖', '🎁'];
+            petal.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (Math.random() * 3 + 3.5) + 's';
+            petal.style.fontSize = (Math.random() * 12 + 14) + 'px';
+            
+            document.getElementById('petal-container').appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, 7000);
+        }
+
+        setInterval(createPetal, 350);
+    </script>
+</body>
+</html>
+
