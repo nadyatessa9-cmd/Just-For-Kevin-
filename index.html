@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, Kevin Suyadi Ritonga 🤍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #120a14;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 85%;
+            max-width: 400px;
+            z-index: 10;
+            margin: 20px 0;
+            box-sizing: border-box;
+        }
+
+        input {
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: none;
+            text-align: center;
+            margin-bottom: 15px;
+            width: 80%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ffb6c1;
+            color: #120a14;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #ff91a4;
+        }
+
+        /* Efek Bunga Berjatuhan */
+        .petal {
+            position: fixed;
+            top: -10vh;
+            z-index: 1;
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(105vh) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .story-text {
+            font-size: 13px;
+            line-height: 1.6;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            white-space: pre-line;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Efek Kelopak Bunga Jatuh -->
+    <div id="petal-container"></div>
+
+    <!-- HALAMAN 0: LOCK SCREEN (PASSWORD) -->
+    <div class="container" id="page-lock">
+        <h3>For You, Kevin 🌷</h3>
+        <p style="font-size: 14px; color: #ccc;">Enter the secret code</p>
+        <input type="password" id="passcode" placeholder="••••••"><br>
+        <button onclick="checkPassword()">Buka</button>
+        <p style="font-size: 12px; color: #ffb6c1; margin-top: 15px;">Hint: 111111 💜</p>
+    </div>
+
+    <!-- HALAMAN 1 -->
+    <div class="container hidden" id="page-1">
+        <h3 style="color: #ffb6c1;">🌷 PEMBUKA</h3>
+        <div class="story-text">WOIII SENGGG 😭
+Iya kamu.
+Jangan pura-pura nggak tahu. 😒😂
+Aku ada sesuatu buat kamu...
+Sebenernya aku mau bikin yang keren, aesthetic, terus bikin kamu terharu.
+Tapi karena yang bikin aku...
+ya semoga nggak malu-maluin aja lah ya. 😭😂
+Tapi ini beneran khusus buat kamu.
+Kevin Suyadi Ritonga 🤍
+alias...
+Senggkuuu.
+Jadi sebelum kamu buka...
+jangan ketawa dulu.
+Aku udah malu bikin beginian. 😭</div>
+        <div class="nav-buttons">
+            <div></div>
+            <button onclick="nextPage(1)">Buka dulu donggg → 🤍</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 2 -->
+    <div class="container hidden" id="page-2">
+        <h3 style="color: #ffb6c1;">🎂 23 SEPTEMBER</h3>
+        <div class="story-text">HAPPY BIRTHDAY SENGGKUUU! 🤍
+Selamat ulang tahun yaa sayanggg.
+Nggak kerasa kamu udah tambah umur lagi. 😭
+Tapi tenang...
+tambah umur bukan berarti tambah dewasa. 😭😂
+Bercanda sengg, jangan marah. 🤣
+
+Semoga di umur kamu yang baru ini kamu makin sehat, makin kuat, rezekinya makin lancar, urusannya dimudahkan, dan semua yang lagi kamu usahain sekarang pelan-pelan bisa tercapai.
+Semoga kamu selalu punya alasan buat senyum.
+Semoga hari-hari kamu ke depannya lebih banyak baiknya daripada capeknya.
+Semoga kalau ada sesuatu yang kamu pengenin, satu-satu bisa kamu dapatkan.
+Dan semoga kamu selalu punya tenaga buat ngejar semua yang kamu impikan.
+Walaupun...
+jangan kerja terus sampai lupa aku. 😭
+Aku kan juga butuh perhatian. 😒😂</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(2)">← Kembali</button>
+            <button onclick="nextPage(2)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 3 -->
+    <div class="container hidden" id="page-3">
+        <h3 style="color: #ffb6c1;">💌 AKU MAU NGOMONG SESUATU</h3>
+        <div class="story-text">Sengg...
+Sebenernya aku nggak tahu harus mulai dari mana.
+Aku dari tadi mikir mau nulis apa buat kamu, tapi makin dipikir malah makin bingung. 😭
+Banyak banget yang mau aku bilang.
+Tapi susah banget kalau harus dijadiin kata-kata.
+
+Karena kadang ada perasaan yang kalau cuma disimpan di hati rasanya penuh banget...
+Tapi pas mau diomongin malah cuma bisa bilang:
+“Aku sayang kamu.”
+Udah.
+😭
+
+Padahal sebenernya masih banyak banget yang pengen aku bilang.
+Aku cuma mau kamu tahu...
+aku seneng banget bisa kenal kamu.
+Sesimpel itu.
+Aku seneng pernah ketemu kamu.
+Seneng bisa ngobrol sama kamu.
+Seneng bisa punya seseorang yang bisa aku cari kalau aku lagi pengen cerita.
+Seneng bisa punya seseorang yang tiba-tiba bikin aku senyum cuma gara-gara satu chat.
+
+Dan yang paling lucu...
+Aku sendiri nggak tahu kapan tepatnya aku mulai sesayang ini sama kamu.
+Kita juga nggak punya tanggal yang jelas kan? 😭
+Tiba-tiba udah manggil sengg.
+Tiba-tiba udah saling perhatian.
+Tiba-tiba udah saling nungguin.
+Tiba-tiba udah jadi tempat cerita.
+Dan tiba-tiba...
+aku takut kehilangan kamu.
+🥹</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(3)">← Kembali</button>
+            <button onclick="nextPage(3)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 4 -->
+    <div class="container hidden" id="page-4">
+        <h3 style="color: #ffb6c1;">🥺 TENTANG AWAL KITA</h3>
+        <div class="story-text">Kalau dipikir-pikir lagi...
+Lucu juga ya kita.
+Kita nggak punya cerita awal yang terlalu jelas.
+Nggak ada tanggal yang benar-benar kita ingat.
+Nggak ada momen:
+“Pada hari ini, pukul sekian, kita resmi menjadi pasangan.”
+NGGAK ADA. 😭😂
+
+Tahu-tahu udah saling manggil sengg.
+Tahu-tahu udah nyaman.
+Tahu-tahu udah saling cari kalau nggak ngobrol.
+Tahu-tahu udah jadi bagian dari hari masing-masing.
+Dan tahu-tahu...
+aku udah sayang banget sama kamu.
+
+Kadang aku suka mikir...
+kok bisa ya?
+Kok orang yang awalnya mungkin cuma orang biasa yang aku kenal...
+pelan-pelan malah jadi orang yang keberadaannya penting banget buat aku.
+
+Sampai kalau kamu nggak ada kabar...
+aku bisa mikir macam-macam. 😭
+Padahal mungkin kamu cuma lagi makan. 😭😂
+Tapi ya begitulah...
+kalau udah sayang, otak suka nggak diajak kerja sama.</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(4)">← Kembali</button>
+            <button onclick="nextPage(4)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 5 -->
+    <div class="container hidden" id="page-5">
+        <h3 style="color: #ffb6c1;">🌙 KALAU NANTI KAMU CAPEK</h3>
+        <div class="story-text">Sengg...
+Nanti kalau kamu udah mulai kerja dan hidup kamu makin sibuk...
+kalau nanti kamu capek...
+kalau nanti kamu pulang kerja rasanya udah nggak punya tenaga buat ngapa-ngapain...
+aku harap kamu tetap inget kalau ada aku.
+
+Aku mungkin nggak bisa selalu ada di samping kamu secara langsung.
+Aku juga mungkin nggak bisa bantu banyak.
+Kadang paling banter aku cuma bisa bilang:
+“Sengg, semangat yaa.” 😭
+Tapi aku serius waktu bilang itu.
+Aku beneran pengen kamu baik-baik aja.
+Aku pengen kamu berhasil.
+Aku pengen kamu punya kehidupan yang kamu mau.
+Aku pengen lihat kamu suatu hari nanti bisa bilang:
+“Akhirnya aku berhasil.”
+Dan aku pengen jadi salah satu orang yang ikut senang waktu kamu ngomong itu.
+
+Kalau nanti kamu lagi capek...
+nggak apa-apa.
+Kalau nanti kamu lagi takut...
+nggak apa-apa.
+Kalau nanti kamu lagi bingung...
+nggak apa-apa.
+Kamu nggak harus selalu kuat.
+Kalau kamu mau cerita, cerita aja.
+Kalau kamu mau diam, aku temenin.
+
+Kalau kamu cuma butuh seseorang yang bilang:
+“Ayo sengg, kita jalan lagi pelan-pelan.”
+Aku mau jadi orang itu.
+Walaupun mungkin setelah kamu cerita panjang lebar...
+aku cuma bisa jawab:
+“Iya sengg, aku ngerti...”
+Padahal dalam hati:
+“Aku juga bingung harus jawab apa. 😭”
+😂😭
+
+Tapi setidaknya...
+kamu nggak sendirian.</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(5)">← Kembali</button>
+            <button onclick="nextPage(5)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 6 -->
+    <div class="container hidden" id="page-6">
+        <h3 style="color: #ffb6c1;">🤍 AKU NGGAK MINTA KAMU SEMPURNA</h3>
+        <div class="story-text">Aku nggak butuh kamu jadi orang yang sempurna.
+Aku nggak butuh kamu selalu tahu harus ngapain.
+Aku nggak butuh kamu selalu kuat.
+Aku juga nggak mau kamu ngerasa harus selalu terlihat baik-baik aja di depan aku.
+
+Kalau capek, bilang capek.
+Kalau sedih, bilang sedih.
+Kalau takut, bilang takut.
+Kalau lagi banyak pikiran...
+cerita aja.
+Nggak harus selalu ada solusi.
+Kadang kita cuma butuh seseorang yang mau dengerin.
+
+Dan kalau kamu butuh itu...
+aku mau jadi orangnya.
+Aku mungkin nggak selalu punya jawaban.
+Kadang aku malah ikut bingung. 😭😂
+Tapi aku bisa dengerin.
+Aku bisa nemenin.
+Aku bisa bilang:
+“Udah sengg, pelan-pelan aja.”
+
+Dan kalau memang hari itu berat banget...
+yaudah.
+Kita istirahat dulu.
+Besok baru lanjut lagi.
+Aku nggak mau kamu merasa harus menghadapi semuanya sendirian.
+🥹</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(6)">← Kembali</button>
+            <button onclick="nextPage(6)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 7 -->
+    <div class="container hidden" id="page-7">
+        <h3 style="color: #ffb6c1;">🥹 TENTANG MIMPI KAMU</h3>
+        <div class="story-text">Aku pengen banget lihat kamu berhasil.
+Bukan cuma karena aku pacar kamu.
+Tapi karena aku tahu kamu juga punya mimpi.
+Punya keinginan.
+Punya kehidupan yang pengen kamu bangun.
+
+Aku tahu mungkin nggak semuanya gampang.
+Mungkin ada banyak hal yang harus kamu korbankan.
+Mungkin ada banyak capek yang harus kamu lewatin.
+Tapi aku harap...
+jangan berhenti percaya sama diri kamu sendiri.
+
+Kalau nanti ada hari di mana kamu ngerasa:
+“Kayaknya aku nggak bisa deh...”
+Aku pengen kamu inget...
+aku percaya kamu bisa.
+Bahkan kalau saat itu kamu sendiri lagi nggak percaya sama diri kamu.
+Aku percaya.
+
+Aku pengen lihat kamu berhasil.
+Aku pengen lihat kamu punya kehidupan yang kamu impikan.
+Dan nanti kalau kamu udah berhasil...
+aku mungkin bakal jadi orang yang paling sering bilang:
+“Tuh kan sengg, aku bilang juga apa.” 😭😂
+Padahal dari dulu juga mungkin aku nggak pernah bilang. 😭</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(7)">← Kembali</button>
+            <button onclick="nextPage(7)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 8 -->
+    <div class="container hidden" id="page-8">
+        <h3 style="color: #ffb6c1;">📸 SATU MASALAH BESAR KITA</h3>
+        <div class="story-text">Tapi ada satu hal yang sampai sekarang masih mengganggu pikiranku...
+KITA BELUM PUNYA FOTO BERDUA. 😭😭😭
+HAHAHAHAHA.
+Ini pacaran apa hubungan LDR sama KTP sih? 😭😂
+
+Tapi gapapa.
+Berarti masih ada satu momen yang belum kita punya.
+Foto pertama kita.
+Dan aku nggak peduli nanti fotonya aesthetic atau malah muka kita sama-sama aneh.
+Mau rambut berantakan.
+Mau muka lagi jelek.
+Mau senyum nggak jelas.
+Yang penting ada kamu dan aku di satu frame. 🤍
+
+Aku pengen suatu hari nanti kita punya banyak foto.
+Banyak banget.
+Sampai nanti galeri HP penuh sama foto kita.
+Terus kamu protes:
+“Sengg, hapus sebagian dong.”
+Aku:
+“NGGAK MAU.” 😭😂
+
+Terus nanti kalau beberapa tahun lagi kita lihat website ini...
+kita bisa ketawa sambil bilang:
+“Dulu kita bahkan belum punya foto berdua.”
+Dan mungkin saat itu...
+kita udah punya begitu banyak cerita yang nggak pernah kita bayangin sebelumnya.
+🥹🤍</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(8)">← Kembali</button>
+            <button onclick="nextPage(8)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 9 -->
+    <div class="container hidden" id="page-9">
+        <h3 style="color: #ffb6c1;">💭 TENTANG MASA DEPAN KITA</h3>
+        <div class="story-text">Sengg...
+Aku tahu perjalanan kita ke depan masih panjang.
+Kamu punya rencana kamu.
+Aku juga punya rencana aku.
+Kita sama-sama pengen punya kehidupan yang lebih baik.
+
+Mungkin nanti ada masa kita sama-sama sibuk.
+Ada masa kita jauh.
+Ada masa kita capek.
+Ada masa kita mungkin nggak punya banyak waktu buat ngobrol.
+Tapi aku berharap...
+kita tetap saling ngerti.
+
+Kalau salah satu lagi capek, jangan malah menjauh.
+Kalau ada masalah, jangan langsung menyerah.
+Kalau lagi susah, jangan merasa harus menghadapi semuanya sendirian.
+
+Aku pengen kita sama-sama belajar.
+Sama-sama tumbuh.
+Sama-sama berusaha.
+Sama-sama ngejar mimpi.
+Dan kalau suatu hari nanti kita berhasil sampai ke kehidupan yang kita impikan...
+aku pengen kita bisa nengok ke belakang dan bilang:
+“Gila ya... ternyata kita bisa sampai sejauh ini.”
+🥹🤍
+
+Aku nggak tahu nanti kita bakal sampai sejauh apa.
+Aku nggak tahu semuanya bakal sesuai rencana atau nggak.
+Tapi aku berharap...
+kalau memang kita sama-sama masih mau,
+kita tetap jalan bareng.
+Pelan-pelan aja.
+Nggak harus buru-buru.
+Yang penting...
+jangan saling lepas.</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(9)">← Kembali</button>
+            <button onclick="nextPage(9)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 10 -->
+    <div class="container hidden" id="page-10">
+        <h3 style="color: #ffb6c1;">😂 PROYEK BESAR KITA</h3>
+        <div class="story-text">Nah...
+Sekarang kita masuk ke bagian yang sangat penting. 😭
+Sengg harus rajin kerja yaa.
+Jangan malas-malasan.
+Karena ada satu proyek besar yang harus kita siapkan. 👀
+Aku kasih clue:
+6 huruf.
+Depannya S.
+Belakangnya T.
+Apa hayo? 👀
+...
+...
+SINAMOT. 😭😭😭😂❤️
+WKWKWKWK.
+
+Jadi kalau nanti kamu capek kerja, inget aja:
+“Aku kerja bukan cuma buat diri sendiri... ada masa depan yang harus dibiayai.” 😭😂
+Bercanda sengg.
+Jangan langsung stres. 🤣
+
+Tapi sebenernya...
+aku berharap banget suatu hari nanti candaan ini nggak cuma jadi candaan.
+Semoga suatu hari nanti kita beneran sampai ke tahap itu.
+Bukan cuma ngomong:
+“Nanti kalau udah...”
+Tapi beneran bisa bilang:
+“Akhirnya kita sampai juga.”
+🥹🤍
+
+Dan kalau hari itu datang...
+aku rasa aku bakal nangis.
+Bukan karena sinamotnya. 😭😂
+Tapi karena aku bakal inget...
+dulu kita pernah ada di masa di mana semuanya masih berupa rencana.
+Masih berupa mimpi.
+Masih berupa obrolan kecil.
+Masih berupa:
+“Kalau nanti...”
+Dan ternyata...
+kita beneran bisa sampai.</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(10)">← Kembali</button>
+            <button onclick="nextPage(10)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 11 -->
+    <div class="container hidden" id="page-11">
+        <h3 style="color: #ffb6c1;">🌧️ KALAU SUATU HARI NANTI</h3>
+        <div class="story-text">Sengg...
+Kalau suatu hari nanti kamu lagi ngerasa hidup kamu nggak sesuai yang kamu harapkan...
+tolong jangan langsung merasa kamu gagal.
+Karena aku tahu kamu udah berusaha.
+Mungkin hasilnya belum kelihatan sekarang.
+Mungkin kamu belum punya semua yang kamu mau.
+Mungkin masih banyak yang harus dikejar.
+Tapi bukan berarti kamu nggak maju.
+
+Kadang kita cuma terlalu sibuk melihat apa yang belum kita punya...
+sampai lupa melihat seberapa jauh kita udah berjalan.
+
+Jadi kalau nanti kamu lagi capek...
+berhenti sebentar gapapa.
+Tarik napas.
+Istirahat.
+Nangis kalau memang mau nangis.
+Nggak usah sok kuat terus.
+Setelah itu...
+ayo jalan lagi.
+Pelan-pelan aja.
+
+Aku juga nggak akan maksa kamu harus selalu kuat.
+Aku cuma mau kamu jangan menyerah sama diri kamu sendiri.
+Karena aku...
+masih pengen lihat kamu berhasil.
+🥺</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(11)">← Kembali</button>
+            <button onclick="nextPage(11)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 12 -->
+    <div class="container hidden" id="page-12">
+        <h3 style="color: #ffb6c1;">🥺 KALAU NANTI KITA SUDAH TUA</h3>
+        <div class="story-text">Ini mungkin kedengerannya jauh banget...
+Tapi kadang aku suka mikir.
+Gimana ya kalau nanti kita udah tua?
+😭
+
+Kita mungkin bakal lupa banyak hal tentang masa sekarang.
+Mungkin lupa chat pertama.
+Mungkin lupa siapa yang duluan perhatian.
+Mungkin lupa kapan mulai saling manggil sengg.
+Walaupun jelas kamu yang duluan. 😭😂
+Tapi aku berharap kita nggak lupa sama masa ini.
+
+Masa ketika kita masih muda.
+Masih sama-sama belajar.
+Masih sama-sama berusaha.
+Masih sama-sama punya banyak mimpi.
+Masih sama-sama bilang:
+“Nanti kalau udah...”
+
+Aku pengen suatu hari nanti kita bisa duduk bareng...
+terus lihat kembali semua cerita lama.
+Lihat foto pertama kita.
+Lihat website ini.
+Terus ketawa karena ternyata dulu kita masih polos banget. 😭😂
+
+Dan mungkin saat itu aku bakal diem sebentar...
+terus lihat kamu...
+dan mikir:
+“Gila... ternyata orang yang dulu cuma bisa aku panggil lewat chat, sekarang beneran duduk di sebelah aku.”
+🥹🤍
+Aku rasa itu bakal jadi salah satu hal paling indah yang bisa aku rasain.</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(12)">← Kembali</button>
+            <button onclick="nextPage(12)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 13 -->
+    <div class="container hidden" id="page-13">
+        <h3 style="color: #ffb6c1;">🤍 AKU SAYANG KAMU YANG SEKARANG</h3>
+        <div class="story-text">Sengg...
+Aku nggak cuma sayang sama kamu yang nanti udah sukses.
+Aku nggak cuma sayang sama kamu yang nanti udah punya banyak uang.
+Aku nggak cuma sayang sama kamu kalau hidup kamu lagi baik-baik aja.
+
+Aku sayang sama kamu yang sekarang.
+Yang masih berjuang.
+Yang masih belajar.
+Yang masih capek.
+Yang masih kadang bingung.
+Yang masih punya banyak kekurangan.
+Yang mungkin kadang bikin aku kesel. 😭😂
+
+Aku sayang sama kamu yang sekarang.
+Karena kamu nggak harus jadi versi terbaik kamu dulu supaya pantas disayang.
+Buat aku, kamu yang sekarang juga sudah cukup.
+
+Dan kalau nanti kamu berubah jadi lebih baik...
+aku bakal senang.
+Kalau nanti kamu berhasil...
+aku bakal bangga.
+Kalau nanti kamu jatuh...
+aku tetap mau nemenin kamu bangun lagi.
+
+Karena aku nggak pengen cuma ada di bagian cerita kamu yang enak-enaknya aja.
+Aku pengen...
+kalau boleh, aku juga ada di bagian yang susah.
+🥹🤍</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(13)">← Kembali</button>
+            <button onclick="nextPage(13)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 14 -->
+    <div class="container hidden" id="page-14">
+        <h3 style="color: #ffb6c1;">😭 PESAN TERAKHIR</h3>
+        <div class="story-text">Okeee sengg...
+Ini beneran yang terakhir.
+Aku cuma mau bilang...
+Selamat ulang tahun, senggkuuu. 🎂🤍
+Makasih udah lahir.
+Makasih udah hadir.
+Makasih udah jadi bagian dari hidup aku.
+Makasih udah mau dengerin cerita aku.
+Makasih udah sabar sama aku.
+Makasih udah tetap ada.
+Dan makasih...
+karena sampai sekarang...
+masih mau sama aku. 😭❤️
+
+Aku nggak tahu nanti cerita kita bakal seperti apa.
+Aku nggak bisa janji semuanya akan selalu gampang.
+Aku nggak bisa janji kita nggak akan pernah berantem.
+Aku nggak bisa janji nggak akan ada hari di mana kita sama-sama capek.
+
+Tapi aku bisa bilang satu hal...
+Kalau kamu masih mau, aku juga masih mau.
+Aku mau terus belajar kenal kamu.
+Mau terus dengar cerita kamu.
+Mau lihat kamu berkembang.
+Mau lihat kamu berhasil.
+Mau ketawa bareng kamu.
+Mau marah-marah kecil sama kamu. 😭
+Mau bikin kamu kesel.
+Mau kamu bikin aku kesel.
+Terus lima menit kemudian:
+“Sengg...” 😭😂
+Begitulah kira-kira hubungan kita. 🤣❤️</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(14)">← Kembali</button>
+            <button onclick="nextPage(14)">Lanjut →</button>
+        </div>
+    </div>
+
+    <!-- HALAMAN 15 -->
+    <div class="container hidden" id="page-15">
+        <h3 style="color: #ffb6c1;">🌷 ENDING</h3>
+        <div class="story-text">Senggkuuu...
+Kalau suatu hari nanti kamu lupa betapa berharganya diri kamu...
+buka lagi website ini.
+Baca lagi semua yang aku tulis.
+Karena mungkin nanti aku nggak selalu bisa ngomong semuanya secara langsung.
+Setidaknya... kata-kata ini pernah aku tulis buat kamu dengan perasaan yang beneran. 🥹🤍
+
+Dan kalau suatu hari nanti kita benar-benar sampai di tempat yang sekarang cuma bisa kita bayangin...
+aku pengen lihat kamu, terus bilang: “Sengg... kita berhasil.”
+Dan mungkin aku bakal nangis. Kamu juga boleh nangis.
+Tapi kalau kamu nangis duluan... aku screenshot dulu. 😭😭😭😂❤️
+
+Kalau aku bisa mengulang semuanya dari awal, dan seseorang bilang perjalanan kita nggak selalu gampang, aku tetap bakal bilang:
+“Yaudah. Aku tetap mau kenal dia.”
+Karena kenal kamu adalah salah satu hal yang aku syukuri.
+
+Jadi... selamat ulang tahun yaa senggkuuu.
+Semoga panjang umur, sehat selalu, rezekimu lancar, kerja kerasmu dibalas dengan hasil yang baik, dan semoga tabungan kamu cepat terkumpul...
+KARENA SINAMOT KITA MENUNGGU. 😭😭😭😂❤️
+
+Dan semoga di antara semua hal yang kamu perjuangkan, aku masih menjadi salah satu hal yang ingin kamu perjuangkan. 🥹🤍
+
+Aku sayang kamu. Banyak banget.
+Jawabanku tetap: “Iya. Kamu lah. Masa tetangga.” 😭😂❤️
+
+Selamat ulang tahun, Kevin. Senggkuuu.
+Semoga ini awal dari banyak banget hal baik yang nanti kita ceritain lagi bersama. 🥹🤍
+— dari aku, yang kadang nyebelin, kadang manja, kadang cerewet, kadang nggak jelas... tapi beneran sayang banget sama kamu. ❤️</div>
+        <div class="nav-buttons">
+            <button onclick="prevPage(15)">← Kembali</button>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Audio Musik Latar -->
+    <audio id="bg-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let currentPage = 0;
+        const totalPages = 15;
+
+        function checkPassword() {
+            const pass = document.getElementById('passcode').value;
+            if (pass === '111111') { // Kamu bisa ganti password ini
+                document.getElementById('page-lock').classList.add('hidden');
+                document.getElementById('page-1').classList.remove('hidden');
+                
+                // Putar musik
+                const music = document.getElementById('bg-music');
+                music.play().catch(error => console.log("Audio autoplay diblokir browser"));
+            } else {
+                alert('Wrong code, try again 💜');
+            }
+        }
+
+        function nextPage(fromPage) {
+            document.getElementById('page-' + fromPage).classList.add('hidden');
+            let next = fromPage + 1;
+            if (document.getElementById('page-' + next)) {
+                document.getElementById('page-' + next).classList.remove('hidden');
+            }
+        }
+
+        function prevPage(fromPage) {
+            document.getElementById('page-' + fromPage).classList.add('hidden');
+            let prev = fromPage - 1;
+            if (document.getElementById('page-' + prev)) {
+                document.getElementById('page-' + prev).classList.remove('hidden');
+            }
+        }
+
+        // Efek Kelopak Bunga Jatuh
+        function createPetal() {
+            const petal = document.createElement('div');
+            petal.classList.add('petal');
+            petal.innerHTML = '🌸';
+            petal.style.left = Math.random() * 100 + 'vw';
+            petal.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            petal.style.fontSize = (Math.random() * 10 + 15) + 'px';
+            
+            document.getElementById('petal-container').appendChild(petal);
+
+            setTimeout(() => {
+                petal.remove();
+            }, 6000);
+        }
+
+        setInterval(createPetal, 400);
+    </script>
+</body>
+</html>
